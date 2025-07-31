@@ -32,7 +32,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+               "node_modules/particles.js/particles.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,10 +94,15 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+               "node_modules/particles.js/particles.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2c4daf2f-1d02-42cc-98e3-87107c455bb5"
   }
 }
