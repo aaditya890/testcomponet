@@ -1,0 +1,23 @@
+  <div class="max-w-md mx-auto p-4 border rounded-lg space-y-4">
+    <h2 class="text-xl font-bold">Notify Test</h2>
+
+    <form [formGroup]="f" class="space-y-3">
+      <input class="w-full border p-2 rounded" placeholder="Name" formControlName="name">
+      <input class="w-full border p-2 rounded" placeholder="Phone (+91XXXXXXXXXX)" formControlName="phone">
+      <input class="w-full border p-2 rounded" placeholder="Message (e.g., Bilaspur to Raipur)" formControlName="message">
+    </form>
+
+    <div class="flex gap-2">
+      <button class="px-3 py-2 bg-green-600 text-white rounded" (click)="send('whatsapp')">
+        Send WhatsApp
+      </button>
+      <button class="px-3 py-2 bg-blue-600 text-white rounded" (click)="send('sms-msg91')">
+        Send SMS (MSG91)
+      </button>
+      <button class="px-3 py-2 bg-indigo-600 text-white rounded" (click)="send('sms-twilio')">
+        Send SMS (Twilio)
+      </button>
+    </div>
+
+    <p *ngIf="status" class="text-sm">{{ status }}</p>
+  </div>

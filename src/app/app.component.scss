@@ -1,0 +1,203 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Custom Keyframe Animations
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes glow-border {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.4),
+                inset 0 0 30px rgba(250, 204, 21, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(250, 204, 21, 0.8),
+                inset 0 0 60px rgba(250, 204, 21, 0.2);
+  }
+}
+
+@keyframes photo-transition {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.1) rotateY(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+// Custom Animation Classes
+.animate-slide-down {
+  animation: slide-down 1s ease-out 0.3s both;
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease-out 0.9s both;
+}
+
+.animate-scale-in {
+  animation: scale-in 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s both;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 20s linear infinite;
+}
+
+.animate-glow-border {
+  animation: glow-border 3s ease-in-out infinite;
+}
+
+.photo-transition {
+  animation: photo-transition 1.2s ease-in-out;
+}
+
+// Custom Component Styles
+.candle-container {
+  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.6));
+}
+
+.candle-flame {
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.9));
+  animation: flicker 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    transform: translateX(-50%) scale(1) rotate(-2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1) rotate(2deg);
+    opacity: 0.8;
+  }
+}
+
+.shadow-glow {
+  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.8));
+}
+
+.card-glow {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8),
+              0 0 40px rgba(250, 204, 21, 0.3);
+}
+
+.photo-frame {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.age-counter-glow {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.6),
+              0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6),
+                0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(251, 191, 36, 0.9),
+                0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.title-glow {
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .max-w-lg {
+    max-width: 95vw;
+  }
+  
+  .w-72.h-72 {
+    width: 16rem;
+    height: 16rem;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-6xl {
+    font-size: 3rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+  
+  .px-10 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-5 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .w-72.h-72 {
+    width: 12rem;
+    height: 12rem;
+  }
+  
+  .p-10 {
+    padding: 1.5rem;
+  }
+}
