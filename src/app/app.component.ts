@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common"
-import { Component,  OnInit,  OnDestroy, ElementRef, ViewChild } from "@angular/core"
+import { Component,  OnInit, OnDestroy,  ElementRef, ViewChild } from "@angular/core"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 
 interface Photo {
@@ -24,9 +24,6 @@ export class AppComponent implements OnInit, OnDestroy {
   enteredPass = "" // user ka input
   authError = false // wrong pass msg
   private secretPass = "merishree@19"
-  wrongAttempts = 0
-  authMessage: string | null = null
-  isShaking = false
 
   currentPhotoIndex = 0
   isPhotoChanging = false
@@ -42,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private birthDate = new Date("2006-09-27T00:00:00")
 
-  photos: Photo[] = [
+ photos: Photo[] = [
     {
       src: "/assets/pics/1.jpg",
       name: "Bunny",
@@ -203,23 +200,9 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.enteredPass === this.secretPass) {
       this.showAuthOverlay = false
       this.authError = false
-      this.authMessage = null
-      this.wrongAttempts = 0
-      this.isShaking = false
-      this.bgSongRef.nativeElement.play()
+      this.bgSongRef.nativeElement.play() // 🎵 music play
     } else {
-      this.wrongAttempts++
-      const msgs = [
-        "Nikal jao yaha se, tum galat insaan ho!",
-        "Bola na, nikal jao! Ab sahi likho.",
-        "Aakhri warning! Secret key dhyaan se likho.",
-      ]
-      this.authMessage = msgs[Math.min(this.wrongAttempts - 1, msgs.length - 1)]
       this.authError = true
-
-      // retrigger a quick shake animation each failure
-      this.isShaking = true
-      setTimeout(() => (this.isShaking = false), 350)
     }
   }
 }
