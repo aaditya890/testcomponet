@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
   showAuthOverlay = true // start me lock screen dikhana
   enteredPass = "" // user ka input
   authError = false // wrong pass msg
-  private secretPass = "123"
+  private secretPass = "merishree@19"
 
   currentPhotoIndex = 0
   isPhotoChanging = false
