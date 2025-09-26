@@ -215,3 +215,52 @@
 .shake {
   animation: shake-keyframes 0.28s ease-in-out;
 }
+
+.heading-sticker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(16px, 5vw, 36px);
+  height: clamp(16px, 5vw, 36px);
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0; /* behind the text; text uses z-10 in HTML */
+  /* soft golden glow */
+  background: radial-gradient(closest-side, rgba(255,195,26,0.85), rgba(255,195,26,0.0) 70%);
+  filter: blur(2px);
+  opacity: 0.75;
+}
+.heading-sticker--left { left: clamp(-8px, -2vw, -16px); }
+.heading-sticker--right { right: clamp(-8px, -2vw, -16px); }
+
+/* Container that holds heading should be position:relative already (set in HTML). */
+
+/* Age capsule: optional if you want padding/rounded; keep your existing styles */
+.age-capsule {
+  /* no visual changes here on purpose; your existing gradient/rounded styles remain */
+}
+
+/* Single-line age counter that scales responsibly */
+.age-counter {
+  gap: clamp(6px, 2.5vw, 14px);
+  line-height: 1.15;
+  /* Ensure it never wraps */
+  white-space: nowrap;
+}
+
+/* If your counter has number/unit spans, these help refine sizes.
+   They are safe: if they don’t exist, layout still benefits from no-wrap above. */
+.age-counter .age-part { display: inline-flex; align-items: baseline; gap: 4px; }
+.age-counter .age-num { font-weight: 800; font-size: clamp(18px, 6vw, 28px); }
+.age-counter .age-unit { font-size: clamp(10px, 3.2vw, 14px); opacity: 0.9; }
+.age-counter .age-dot { font-weight: 700; opacity: 0.85; }
+
+/* On very narrow phones, hide middle separators to save room */
+@media (max-width: 360px) {
+  .age-counter .age-dot { display: none; }
+}
+
+/* If text still risks overflow on ultra-narrow devices, scale the whole row down slightly */
+@media (max-width: 340px) {
+  .age-counter { transform: scale(0.92); transform-origin: center; }
+}
